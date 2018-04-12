@@ -1,8 +1,8 @@
 {
   "_from": "cordova-plugin-add-swift-support@^1.7.0",
-  "_id": "cordova-plugin-add-swift-support@1.7.1",
+  "_id": "cordova-plugin-add-swift-support@1.7.2",
   "_inBundle": false,
-  "_integrity": "sha512-pD8rf8qR9C9znj32d/uUzYKW1XOgE/bngXtSUtfwzC5TXbiLs1NIwc4l20qB2eojtG8L0k/zusCOW/tytdXYmw==",
+  "_integrity": "sha512-4syQ0srjXvlH07sAxQlwMAAqIRTI28IWLYI44RFAKFRdYoIyopjQDqUWdieBK2ELvxgffkn6Rr0r0hMdRyGz/w==",
   "_location": "/cordova-plugin-add-swift-support",
   "_phantomChildren": {},
   "_requested": {
@@ -20,10 +20,10 @@
     "/",
     "/cordova-plugin-fingerprint-aio"
   ],
-  "_resolved": "https://registry.npmjs.org/cordova-plugin-add-swift-support/-/cordova-plugin-add-swift-support-1.7.1.tgz",
-  "_shasum": "91a3483d3c9092cf238aee69e526a15465e0cab8",
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-add-swift-support/-/cordova-plugin-add-swift-support-1.7.2.tgz",
+  "_shasum": "02ae655f3e123974f6b43da4340e7e8e1f316d48",
   "_spec": "cordova-plugin-add-swift-support@^1.7.0",
-  "_where": "/Volumes/MacintoshHD/tdosilva/Projects/Ionic/auth",
+  "_where": "/Volumes/MacintoshHD/tdosilva/Projects/Ionic/blank",
   "author": {
     "name": "Alexis Kofman",
     "email": "alexis.kofman@gmail.com",
@@ -73,5 +73,5 @@
     "build": "webpack --config webpack.config.js",
     "test": "eslint src"
   },
-  "version": "1.7.1"
+  "version": "1.7.2"
 }

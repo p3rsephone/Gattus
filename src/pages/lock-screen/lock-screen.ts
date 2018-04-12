@@ -1,23 +1,28 @@
-import { HomePage } from './../home/home';
+import { TabsPage } from './../tabs/tabs';
+import { PincodeController } from 'ionic2-pincode-input';
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController } from 'ionic-angular';
-import { PincodeController } from "ionic2-pincode-input/dist";
-import {FingerprintAIO} from "@ionic-native/fingerprint-aio";
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { FingerprintAIO } from "@ionic-native/fingerprint-aio";
 
 import CryptoJS from 'crypto-js';
 import { Storage } from '@ionic/storage';
+/**
+ * Generated class for the LockScreenPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 
+@IonicPage()
 @Component({
-  selector: 'page-lockscreen',
-  templateUrl: 'lock-screen.html'
+  selector: 'page-lock-screen',
+  templateUrl: 'lock-screen.html',
 })
 export class LockScreenPage {
 
-  code: string;
-  //Fazer tentativas depois
+  code: string
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public pincodeCtrl: PincodeController,
-  private storage: Storage, private alertCtrl: AlertController, private faio: FingerprintAIO) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public pincodeCtrl: PincodeController, public storage: Storage, private alertCtrl: AlertController, private faio: FingerprintAIO) {
   }
 
   ionViewDidLoad() {
@@ -99,8 +104,9 @@ export class LockScreenPage {
         console.log("Stored password: " + stored_pincode)
   
         // Go to home page
-        this.navCtrl.setRoot(HomePage, {
-            pincode: stored_pincode
+        this.navCtrl.setRoot(TabsPage, {
+            pincode: stored_pincode,
+            storage: this.storage
           });
         }
       )
@@ -123,6 +129,7 @@ export class LockScreenPage {
     }
     
     let alert = this.alertCtrl.create({
+      enableBackdropDismiss: false,
       title: title,
       subTitle: message,
       buttons: botoes
@@ -135,8 +142,9 @@ export class LockScreenPage {
     let hash = String(CryptoJS.SHA256(pincode))
     this.storage.set('password_encrypt', hash);
     this.storage.set('settings',"");
-    this.navCtrl.setRoot(HomePage, {
-      pincode: hash
+    this.navCtrl.setRoot(TabsPage, {
+      pincode: hash,
+      storage: this.storage
     });
   }
 
@@ -150,8 +158,9 @@ export class LockScreenPage {
 
       // if match go to home page
       if (entered_pincode == stored_pincode) {
-        this.navCtrl.setRoot(HomePage, {
-          pincode: entered_pincode
+        this.navCtrl.setRoot(TabsPage, {
+          pincode: entered_pincode,
+          storage: this.storage
         });
       }
       else {

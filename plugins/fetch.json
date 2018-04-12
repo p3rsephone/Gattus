@@ -1,10 +1,28 @@
 {
-  "cordova-plugin-pin-dialog": {
+  "cordova-plugin-fingerprint-aio": {
     "source": {
       "type": "registry",
-      "id": "https://github.com/Paldom/PinDialog.git"
+      "id": "cordova-plugin-fingerprint-aio"
     },
     "is_top_level": true,
+    "variables": {}
+  },
+  "phonegap-plugin-barcodescanner": {
+    "source": {
+      "type": "registry",
+      "id": "phonegap-plugin-barcodescanner@7.1.1"
+    },
+    "is_top_level": true,
+    "variables": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+"
+    }
+  },
+  "cordova-plugin-add-swift-support": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-add-swift-support@^1.7.0"
+    },
+    "is_top_level": false,
     "variables": {}
   },
   "cordova-plugin-whitelist": {
@@ -34,7 +52,7 @@
   "cordova-plugin-ionic-webview": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-ionic-webview@^1.1.16"
+      "id": "cordova-plugin-ionic-webview@^1.2.0"
     },
     "is_top_level": true,
     "variables": {}
@@ -45,30 +63,6 @@
       "id": "cordova-plugin-ionic-keyboard@^2.0.5"
     },
     "is_top_level": true,
-    "variables": {}
-  },
-  "cordova-plugin-touch-id": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-touch-id"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
-  "cordova-plugin-fingerprint-aio": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-fingerprint-aio"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
-  "cordova-plugin-add-swift-support": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-add-swift-support@^1.7.0"
-    },
-    "is_top_level": false,
     "variables": {}
   }
 }

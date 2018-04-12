@@ -1,11 +1,9 @@
 page-lock-screen {
-	
+
 }
 
 ion-content {
-  background: #387ef5;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to bottom, #387ef5, #38f5f5);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to bottom, #387ef5, #38f5f5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #ffffff;
 }
 
 .pin-container {
@@ -16,7 +14,3 @@ ion-content {
 	margin-left: auto;
 	margin-right: auto;
 }
-
-/*h4 {
-	color: #c5dbff;
-}*/

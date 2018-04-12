@@ -1,22 +1,29 @@
-import { HomePage } from './../pages/home/home';
+import { SettingsPage } from './../pages/settings/settings';
+import { QrResultPage } from './../pages/qr-result/qr-result';
+import { TabsPage } from './../pages/tabs/tabs';
+import { HomePage } from '../pages/home/home';
+import { LockScreenPage } from './../pages/lock-screen/lock-screen';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IonicStorageModule } from '@ionic/storage'
 
 import { MyApp } from './app.component';
-import { LockScreenPage } from '../pages/lock-screen/lock-screen';
-import { PincodeInputModule } from 'ionic2-pincode-input';
-import {FingerprintAIO} from "@ionic-native/fingerprint-aio";
+import { PincodeInputModule } from  'ionic2-pincode-input';
+import { FingerprintAIO } from "@ionic-native/fingerprint-aio";
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 @NgModule({
   declarations: [
     MyApp,
+    HomePage,
     LockScreenPage,
-    HomePage
+    TabsPage,
+    QrResultPage,
+    SettingsPage
   ],
   imports: [
     BrowserAnimationsModule,
@@ -28,13 +35,17 @@ import {FingerprintAIO} from "@ionic-native/fingerprint-aio";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    HomePage,
     LockScreenPage,
-    HomePage
+    TabsPage,
+    QrResultPage,
+    SettingsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     FingerprintAIO,
+    BarcodeScanner,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

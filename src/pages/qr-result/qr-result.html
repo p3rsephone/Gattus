@@ -1,0 +1,29 @@
+<ion-header>
+
+  <ion-navbar color="favorite">
+    <ion-title>Resultado</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card *ngIf="json[0].maior21 !== undefined">
+    <ion-card-header>Maior de 21 anos?</ion-card-header>
+    <ion-card-content *ngIf="json[0].maior21" class="positivo">
+      SIM
+    </ion-card-content>
+    <ion-card-content *ngIf="!json[0].maior21" class="negativo">
+      NÃO
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="json[0].maior18 !== undefined">
+    <ion-card-header>Maior de 18 anos?</ion-card-header>
+    <ion-card-content *ngIf="json[0].maior18" class="positivo">
+      SIM
+    </ion-card-content>
+    <ion-card-content *ngIf="!json[0].maior18" class="negativo">
+      NÃO
+    </ion-card-content>
+  </ion-card>
+</ion-content>
