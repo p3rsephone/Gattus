@@ -11,11 +11,7 @@ export class TabsPage {
 
   tab1Root = HomePage
   tab2Root = SettingsPage
-  tab1Params = {
-    pincode: this.navParams.get('pincode')
-  }
-  tab2Params = {
-    pincode: this.navParams.get('pincode'),
+  tabParams = {
     storage: this.navParams.get('storage')
   }
 

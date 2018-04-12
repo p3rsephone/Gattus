@@ -21,8 +21,21 @@ import { Storage } from '@ionic/storage';
 export class LockScreenPage {
 
   code: string
+  id: boolean
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public pincodeCtrl: PincodeController, public storage: Storage, private alertCtrl: AlertController, private faio: FingerprintAIO) {
+    this.id = false;
+    this.storage.get('faio').then(fid => {
+      if (fid !== undefined) {
+        console.log("FAIO IS SET")
+        console.log(fid)
+        this.id = fid;
+      } else {
+        console.log("SET FAIO FALSE")
+        this.storage.set('faio', false);
+      }
+    })
+    .catch((error: any) => console.log(error))
   }
 
   ionViewDidLoad() {
@@ -41,7 +54,7 @@ export class LockScreenPage {
 
   openPinCode(register: boolean): any {
     let pinCode = this.pincodeCtrl.create({
-      title: 'Insira um PIN',
+      title: 'Insira o seu PIN',
       passSize: 6,
       hideForgotPassword: true,
       hideCancelButton: register,
@@ -105,7 +118,6 @@ export class LockScreenPage {
   
         // Go to home page
         this.navCtrl.setRoot(TabsPage, {
-            pincode: stored_pincode,
             storage: this.storage
           });
         }
@@ -141,9 +153,8 @@ export class LockScreenPage {
   register(pincode) {
     let hash = String(CryptoJS.SHA256(pincode))
     this.storage.set('password_encrypt', hash);
-    this.storage.set('settings',"");
+    this.storage.set('first',true);
     this.navCtrl.setRoot(TabsPage, {
-      pincode: hash,
       storage: this.storage
     });
   }
@@ -159,7 +170,6 @@ export class LockScreenPage {
       // if match go to home page
       if (entered_pincode == stored_pincode) {
         this.navCtrl.setRoot(TabsPage, {
-          pincode: entered_pincode,
           storage: this.storage
         });
       }
