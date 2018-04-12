@@ -1,4 +1,3 @@
-import { LockScreenPage } from './../lock-screen/lock-screen';
 import { Component } from '@angular/core';
 import { NavController,NavParams} from 'ionic-angular';
 
