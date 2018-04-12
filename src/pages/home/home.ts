@@ -1,3 +1,4 @@
+import { Storage } from '@ionic/storage';
 import { QrResultPage } from './../qr-result/qr-result';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { Component } from '@angular/core';
@@ -9,11 +10,22 @@ import { NavController, NavParams, AlertController } from 'ionic-angular';
 })
 export class HomePage {
 
-  public pincode: string
   public data: string
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private barcodeScanner: BarcodeScanner) {
-    this.pincode = navParams.get('pincode')
+  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private barcodeScanner: BarcodeScanner, public storage: Storage) {
+    this.storage = navParams.get('storage');
+  }
+
+  ionViewDidLoad() {
+    this.storage.get('first').then(bool => {
+      if(bool) {
+        console.log("First time")
+        console.log(bool);
+        this.faio();
+      } else {
+        console.log("NOT First time")
+      }
+    })
   }
 
   popup() {
@@ -23,6 +35,31 @@ export class HomePage {
       buttons: ['Ok']
     });
     alert.present();
+  }
+
+  faio() {
+    this.storage.set('first', false);
+    let alert = this.alertCtrl.create({
+      title: 'Touch ID',
+      message: 'Deseja ativar o Touch ID?',
+      buttons:[
+        {
+          text: 'Não',
+          role: 'cancel',
+          handler: () => {
+            console.log('Não clicked');
+          }
+        },
+        {
+          text: 'Sim',
+          handler: () => {
+            console.log('Sim clicked');
+            this.storage.set('faio', true);
+          }
+        }
+      ]
+    })
+    alert.present()
   }
 
   scan() {
