@@ -3,7 +3,7 @@ page-qr-result {
 }
 
 .positivo {
-  color: darkgreen;
+  color: green;
   font-weight: bold;
 }
 
@@ -17,4 +17,12 @@ ion-card {
   width: 100%;
   margin: auto;
   padding: 10px;
+}
+
+ion-card-content {
+  text-align: center
+}
+
+ion-card-header {
+  text-align: center
 }
