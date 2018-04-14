@@ -1,3 +1,4 @@
+import { SplashPage } from './../pages/splash/splash';
 import { SettingsPage } from './../pages/settings/settings';
 import { QrResultPage } from './../pages/qr-result/qr-result';
 import { TabsPage } from './../pages/tabs/tabs';
@@ -20,6 +21,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
   declarations: [
     MyApp,
     HomePage,
+    SplashPage,
     LockScreenPage,
     TabsPage,
     QrResultPage,
@@ -37,6 +39,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     MyApp,
     HomePage,
     LockScreenPage,
+    SplashPage,
     TabsPage,
     QrResultPage,
     SettingsPage
