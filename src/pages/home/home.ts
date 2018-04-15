@@ -73,7 +73,8 @@ export class HomePage {
 
   openItem(text: String) {
     this.navCtrl.push(QrResultPage, {
-      contents: text
+      contents: text,
+      storage: this.storage
     });
   }
 }

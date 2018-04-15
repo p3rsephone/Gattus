@@ -42,8 +42,16 @@ export class SettingsPage {
 
   cleanReset(){
     this.storage.remove('password_encrypt');
+    this.storage.remove('history');
     this.storage.set('faio', false);
     this.presentAlert("Feito","Todos os seus dados foram removidos. Reinicie a aplicação para terminar.");
+  }
+
+  cleanHistory(){
+    this.storage.remove('history').then(val => {
+      this.storage.set('history', []);
+      this.presentAlert("Feito","O seu histórico foi removido.");
+    });
   }
 
   openPinCode(register: boolean): any {

@@ -1,3 +1,4 @@
+import { HistoryPage } from './../pages/history/history';
 import { SplashPage } from './../pages/splash/splash';
 import { SettingsPage } from './../pages/settings/settings';
 import { QrResultPage } from './../pages/qr-result/qr-result';
@@ -21,6 +22,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
   declarations: [
     MyApp,
     HomePage,
+    HistoryPage,
     SplashPage,
     LockScreenPage,
     TabsPage,
@@ -38,6 +40,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
   entryComponents: [
     MyApp,
     HomePage,
+    HistoryPage,
     LockScreenPage,
     SplashPage,
     TabsPage,

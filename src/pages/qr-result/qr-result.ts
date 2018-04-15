@@ -25,7 +25,36 @@ export class QrResultPage {
   ionViewCanEnter() {
     Promise.resolve(this.contents).then(JSON.parse).then((res) => {
       this.json = res;
+      this.store(res);
     }) 
+  }
+
+  store(json) {
+    if (json[0].maior21 !== undefined) {
+      this.navParams.get('storage').get('history').then((val) => {
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1;
+        var yyyy = today.getFullYear();
+        var todays;
+        todays = dd + '/' + mm + '/' + yyyy;
+        let stuff = "Maior do que 21 anos";
+        val.unshift({hdr: stuff, bool: json[0].maior21, date: todays})
+        this.navParams.get('storage').set('history', val);
+      });
+    } else if (json[0].maior18 !== undefined) {
+      this.navParams.get('storage').get('history').then((val) => {
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1;
+        var yyyy = today.getFullYear();
+        var todays;
+        todays = dd + '/' + mm + '/' + yyyy;
+        let stuff = "Maior do que 18 anos";
+        val.unshift({hdr: stuff, bool: json[0].maior18, date: todays})
+        this.navParams.get('storage').set('history', val);
+      });
+    }
   }
 
 }
