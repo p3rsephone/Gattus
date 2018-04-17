@@ -1,3 +1,4 @@
+import { HomeService } from './services/home.service';
 import { SplashPage } from './../pages/splash/splash';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LockScreenPage } from './../pages/lock-screen/lock-screen';
@@ -7,7 +8,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  providers: [HomeService]
 })
 export class MyApp {
   rootPage:any= LockScreenPage;

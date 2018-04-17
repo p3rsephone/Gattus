@@ -12,6 +12,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IonicStorageModule } from '@ionic/storage'
+import { Http, HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { MyApp } from './app.component';
 import { PincodeInputModule } from  'ionic2-pincode-input';
@@ -33,6 +36,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     BrowserAnimationsModule,
     BrowserModule,
     PincodeInputModule,
+    HttpClientModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()
   ],

@@ -27,11 +27,8 @@ export class LockScreenPage {
     this.id = false;
     this.storage.get('faio').then(fid => {
       if (fid !== undefined) {
-        console.log("FAIO IS SET")
-        console.log(fid)
         this.id = fid;
       } else {
-        console.log("SET FAIO FALSE")
         this.storage.set('faio', false);
       }
     })
@@ -41,15 +38,18 @@ export class LockScreenPage {
   ionViewDidLoad() {
     // Try to get password stored
     this.storage.get('password_encrypt').then(pdw => {
-      if (pdw) {
-        console.log("Encrypted passwordk: " + pdw)
-      }
-      // Give a welcome to user and answer for new password
-      else {
+      if(!pdw) {
         this.presentAlert('PIN', "Para começar a usar a aplicação precisa de configurar um PIN de 6 digitos.", true)
       }
     })
     .catch((error: any) => console.log(error))
+    this.storage.get('faio').then (faio =>{
+      if (faio) {
+        setTimeout(() => {
+          this.startTouchID();
+        }, 4000);
+      }
+    })
   }
 
   openPinCode(register: boolean): any {
@@ -123,6 +123,7 @@ export class LockScreenPage {
         }
       )
     })
+    .catch((error: any) => console.log(error))
   }
 
   presentAlert(title: string, message: string, register: boolean) {
