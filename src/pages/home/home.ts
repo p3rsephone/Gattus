@@ -1,3 +1,4 @@
+import { FingerprintAIO } from '@ionic-native/fingerprint-aio';
 import { Storage } from '@ionic/storage';
 import { QrResultPage } from './../qr-result/qr-result';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
@@ -12,18 +13,20 @@ export class HomePage {
 
   public data: string
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private barcodeScanner: BarcodeScanner, public storage: Storage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private barcodeScanner: BarcodeScanner, public storage: Storage, private finger: FingerprintAIO) {
     this.storage = navParams.get('storage');
   }
 
   ionViewDidLoad() {
     this.storage.get('first').then(bool => {
       if(bool) {
-        console.log("First time")
-        console.log(bool);
-        this.faio();
-      } else {
-        console.log("NOT First time")
+        if (this.finger.isAvailable()){
+          console.log(bool);
+          this.faio();
+        } else {
+          this.storage.set('first', false);
+          this.storage.set('faio', false);
+        }
       }
     })
   }
