@@ -452,10 +452,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var HistoryPage = /** @class */ (function () {
-    function HistoryPage(navParams, navCtrl, alertCtrl) {
+    function HistoryPage(navParams, navCtrl) {
         this.navParams = navParams;
         this.navCtrl = navCtrl;
-        this.alertCtrl = alertCtrl;
     }
     HistoryPage.prototype.ionViewWillEnter = function () {
         var _this = this;
@@ -475,57 +474,11 @@ var HistoryPage = /** @class */ (function () {
             _this.history = val;
         });
     };
-    HistoryPage.prototype.histModal = function () {
-        var _this = this;
-        var alert = this.alertCtrl.create({
-            title: "Apagar histórico",
-            subTitle: "Tem a certeza que quer apagar o seu histórico? Esta ação não pode ser desfeita.",
-            buttons: [
-                {
-                    text: 'Cancelar',
-                    role: 'cancel'
-                },
-                {
-                    text: 'Apagar',
-                    handler: function () {
-                        _this.cleanHistory();
-                    }
-                }
-            ]
-        });
-        alert.present();
-    };
-    HistoryPage.prototype.cleanHistory = function () {
-        var _this = this;
-        this.navParams.get('storage').remove('history').then(function (val) {
-            _this.navParams.get('storage').set('history', []);
-            _this.presentAlert("Feito", "O seu histórico foi removido.");
-        });
-    };
-    HistoryPage.prototype.presentAlert = function (title, message) {
-        var _this = this;
-        var alert = this.alertCtrl.create({
-            title: title,
-            subTitle: message,
-            buttons: [
-                {
-                    text: 'OK',
-                    handler: function () {
-                        _this.refreshPage();
-                    }
-                }
-            ]
-        });
-        alert.present();
-    };
-    HistoryPage.prototype.refreshPage = function () {
-        this.navCtrl.setRoot(this.navCtrl.getActive().component);
-    };
     HistoryPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'history',template:/*ion-inline-start:"/Volumes/MacintoshHD/tdosilva/Projects/Ionic/Gattus/src/pages/history/history.html"*/'<ion-header>\n    <ion-navbar color="favorite">\n      <ion-title text-center>\n          Histórico\n      </ion-title>\n\n      <ion-buttons end>\n        <button ion-button icon-only (click)="histModal()">\n          <ion-icon name="trash"></ion-icon>\n        </button>\n      </ion-buttons>\n\n    </ion-navbar>\n</ion-header>\n  \n<ion-content padding>\n    <div *ngIf="history !== undefined">\n      <div *ngFor="let item of history">\n          <ion-card>\n            <ion-note item-end>\n              {{item.date}}\n            </ion-note>\n            <ion-card-header>\n              {{item.hdr}}\n            </ion-card-header>\n            <div *ngIf="item.bool !== undefined">\n              <ion-card-content *ngIf="item.bool" class="positivo">\n                SIM\n              </ion-card-content>\n              <ion-card-content *ngIf="!item.bool" class="negativo">\n                NÃO\n              </ion-card-content>\n            </div>\n            <ion-card-content *ngIf="item.cnt">\n              {{item.cnt}}\n            </ion-card-content>\n          </ion-card>\n      </div>\n    </div>\n</ion-content>\n  '/*ion-inline-end:"/Volumes/MacintoshHD/tdosilva/Projects/Ionic/Gattus/src/pages/history/history.html"*/
+            selector: 'history',template:/*ion-inline-start:"/Volumes/MacintoshHD/tdosilva/Projects/Ionic/Gattus/src/pages/history/history.html"*/'<ion-header>\n    <ion-navbar color="favorite">\n      <ion-title text-center>\n          Histórico\n      </ion-title>\n    </ion-navbar>\n</ion-header>\n  \n<ion-content padding>\n    <div *ngIf="history !== undefined">\n      <div *ngFor="let item of history">\n          <ion-card>\n            <ion-note item-end>\n              {{item.date}}\n            </ion-note>\n            <ion-card-header>\n              {{item.hdr}}\n            </ion-card-header>\n            <div *ngIf="item.bool !== undefined">\n              <ion-card-content *ngIf="item.bool" class="positivo">\n                SIM\n              </ion-card-content>\n              <ion-card-content *ngIf="!item.bool" class="negativo">\n                NÃO\n              </ion-card-content>\n            </div>\n            <ion-card-content *ngIf="item.cnt">\n              {{item.cnt}}\n            </ion-card-content>\n          </ion-card>\n      </div>\n    </div>\n</ion-content>\n  '/*ion-inline-end:"/Volumes/MacintoshHD/tdosilva/Projects/Ionic/Gattus/src/pages/history/history.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */]])
     ], HistoryPage);
     return HistoryPage;
 }());
