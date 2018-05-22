@@ -14,6 +14,7 @@ export class SettingsPage {
   public pincode: string
   private newPincode: string
   public faio: boolean
+  public availFaio: boolean          // This is a bool to check for faio                                              availability
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public pincodeCtrl: PincodeController, public storage: Storage, public alertCtrl: AlertController) {
     this.storage = navParams.get('storage');
@@ -28,12 +29,21 @@ export class SettingsPage {
       if (result !== undefined) {
         this.faio = result
       }
+    });
+    this.storage.get('unavailable').then(faio => {
+      this.availFaio = faio
     })
   }
 
   toggleFaio() {
     this.storage.set('faio', this.faio);
     this.presentAlert("Touch ID", "Nova configuração de Touch ID efetuada. Reinicie a aplicação para concluir.")
+  }
+
+  checkAbility() {
+    this.navParams.get('storage').get('unavailable').then(faio => {
+      return faio
+    })
   }
 
   resetPassword() {

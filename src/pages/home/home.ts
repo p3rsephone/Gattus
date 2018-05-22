@@ -21,10 +21,12 @@ export class HomePage {
     this.storage.get('first').then(bool => {
       if(bool) {
         if (this.finger.isAvailable()){
+          this.storage.set('unavailable', false);
           console.log(bool);
           this.faio();
         } else {
           this.storage.set('first', false);
+          this.storage.set('unavailable', true);
           this.storage.set('faio', false);
         }
       }

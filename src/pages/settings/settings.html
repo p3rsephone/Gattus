@@ -19,7 +19,7 @@
     <ion-item>
         <ion-label>Touch ID</ion-label>
         <ion-icon name="finger-print" item-start></ion-icon>
-        <ion-toggle [(ngModel)]="faio" (ionChange)="toggleFaio()"></ion-toggle>
+        <ion-toggle [(ngModel)]="faio" (ionChange)="toggleFaio()" [(disabled)]="availFaio"></ion-toggle>
     </ion-item>
     <ion-list-header>
       Dados pessoais
