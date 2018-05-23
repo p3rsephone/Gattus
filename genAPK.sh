@@ -27,4 +27,4 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # Return home
 cd ../../../../../../
 
-echo "${RED} APK $1.apk built in $DIR ${NC}"
+echo "${RED}APK $1.apk built in $DIR ${NC}"
