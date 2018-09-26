@@ -1,9 +1,11 @@
 import { FingerprintAIO } from '@ionic-native/fingerprint-aio';
 import { Storage } from '@ionic/storage';
+import {Camera} from 'ionic-native';
 import { QrResultPage } from './../qr-result/qr-result';
-import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
+import {Platform} from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -13,7 +15,7 @@ export class HomePage {
 
   public data: string
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private barcodeScanner: BarcodeScanner, public storage: Storage, private finger: FingerprintAIO) {
+  constructor(public platform: Platform, public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private barcodeScanner: BarcodeScanner, public storage: Storage, private finger: FingerprintAIO) {
     this.storage = navParams.get('storage');
   }
 
@@ -68,11 +70,18 @@ export class HomePage {
   }
 
   scan() {
-    this.barcodeScanner.scan().then((barcodeData) => {
-      this.data = barcodeData.text;
-      this.openItem(barcodeData.text);
-    }, (err) => {
-      this.popup()
+    this.platform.ready().then(() => {
+      this.barcodeScanner.scan().then((barcodeData) => {
+        this.data = barcodeData.text;
+        this.openItem(barcodeData.text);
+      }, (err) => {
+        let alert = this.alertCtrl.create({
+          title: 'Erro',
+          subTitle: err,
+          buttons: ['Ok']
+        });
+        alert.present();
+      })
     })
   }
 

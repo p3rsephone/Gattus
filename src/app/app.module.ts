@@ -19,6 +19,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MyApp } from './app.component';
 import { PincodeInputModule } from  'ionic2-pincode-input';
 import { FingerprintAIO } from "@ionic-native/fingerprint-aio";
+
+import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 @NgModule({
@@ -39,6 +41,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     HttpClientModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
+    NgxQRCodeModule,
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],

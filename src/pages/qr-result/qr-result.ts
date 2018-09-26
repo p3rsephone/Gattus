@@ -11,7 +11,6 @@ import { DomSanitizer } from '@angular/platform-browser';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-qr-result',
   templateUrl: 'qr-result.html',

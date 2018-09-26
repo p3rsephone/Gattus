@@ -1,0 +1,62 @@
+{
+  "_from": "git+https://github.com/apache/cordova-plugin-compat.git",
+  "_id": "cordova-plugin-compat@1.2.1-dev",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/cordova-plugin-compat",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "https://github.com/apache/cordova-plugin-compat.git",
+    "rawSpec": "https://github.com/apache/cordova-plugin-compat.git",
+    "saveSpec": "git+https://github.com/apache/cordova-plugin-compat.git",
+    "fetchSpec": "https://github.com/apache/cordova-plugin-compat.git",
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/apache/cordova-plugin-compat.git#9ac42835e79c749db835c204c845783ce35f34a1",
+  "_spec": "https://github.com/apache/cordova-plugin-compat.git",
+  "_where": "/home/sergio/Desktop/asac/Gattus",
+  "author": {
+    "name": "Apache Software Foundation"
+  },
+  "bugs": {
+    "url": "https://github.com/apache/cordova-plugin-compat/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-compat",
+    "platforms": [
+      "android"
+    ]
+  },
+  "deprecated": false,
+  "description": "[DEPRECATED] This repo is for remaining backwards compatible with previous versions of Cordova.",
+  "engines": {
+    "cordovaDependencies": {
+      "<1.2.0": {
+        "cordova": ">=5.0.0"
+      },
+      ">=1.2.0": {
+        "cordova": ">=5.0.0",
+        "cordova-android": "<6.3.0"
+      }
+    }
+  },
+  "homepage": "http://github.com/apache/cordova-plugin-compat#readme",
+  "keywords": [
+    "ecosystem:cordova",
+    "ecosystem:phonegap",
+    "cordova-android"
+  ],
+  "license": "Apache-2.0",
+  "name": "cordova-plugin-compat",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/apache/cordova-plugin-compat.git"
+  },
+  "version": "1.2.1-dev"
+}

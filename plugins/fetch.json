@@ -7,16 +7,6 @@
     "is_top_level": true,
     "variables": {}
   },
-  "phonegap-plugin-barcodescanner": {
-    "source": {
-      "type": "registry",
-      "id": "phonegap-plugin-barcodescanner@7.1.1"
-    },
-    "is_top_level": true,
-    "variables": {
-      "ANDROID_SUPPORT_V4_VERSION": "27.+"
-    }
-  },
   "cordova-plugin-add-swift-support": {
     "source": {
       "type": "registry",
@@ -61,6 +51,22 @@
     "source": {
       "type": "registry",
       "id": "cordova-plugin-ionic-keyboard@^2.0.5"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-compat": {
+    "source": {
+      "type": "registry",
+      "id": "https://github.com/apache/cordova-plugin-compat.git"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "phonegap-plugin-barcodescanner": {
+    "source": {
+      "type": "registry",
+      "id": "phonegap-plugin-barcodescanner@8.0.0"
     },
     "is_top_level": true,
     "variables": {}
